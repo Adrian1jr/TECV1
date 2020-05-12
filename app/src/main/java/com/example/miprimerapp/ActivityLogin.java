@@ -22,6 +22,7 @@ public class ActivityLogin extends AppCompatActivity {
         etp = (EditText)findViewById(R.id.txtPassword);
 
     }
+    //que onda perros
 
     public void login(View view){
         String nombre = etn.getText().toString();
