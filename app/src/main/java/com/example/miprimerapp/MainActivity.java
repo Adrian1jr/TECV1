@@ -15,9 +15,14 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private ArrayList<String> myItems;
+    private ListView lvitems;
+    private ArrayAdapter<String> arrayAdapter;
 
     Button scanBtn;
 
@@ -28,6 +33,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         scanBtn = findViewById(R.id.scanBtn);
         scanBtn.setOnClickListener(this);
+
+        myItems=new ArrayList<>();
+
+        myItems.add("danny");
+        myItems.add("Adrian");
+        myItems.add("desiree");
+
+        lvitems=findViewById(R.id.lvitems);
+        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myItems);
+        lvitems.setAdapter(arrayAdapter);
 
     }
 
