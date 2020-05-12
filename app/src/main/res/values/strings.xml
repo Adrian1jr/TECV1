@@ -6,4 +6,6 @@
     <string name="txtEmail">Email</string>
     <string name="button">Ingresar</string>
     <string name="todo">TODO</string>
+    <string name="escanear_qr">Escanear QR</string>
+    <string name="asistencia">ASISTENCIA</string>
 </resources>
