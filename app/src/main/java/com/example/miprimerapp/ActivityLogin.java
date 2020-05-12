@@ -30,7 +30,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         if(nombre.equals("maestro") && password.equals("123")){
             Toast.makeText(this,"Ingresado", Toast.LENGTH_LONG).show();
-            Intent siguiente = new Intent(this,ActivityPrincipal.class);
+            Intent siguiente = new Intent(this,MainActivity.class);
             startActivity(siguiente);
         }
         else{
