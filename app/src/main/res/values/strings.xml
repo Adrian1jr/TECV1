@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MiPrimerApp</string>
+    <string name="escanea_ahora">Escanea Ahora</string>
+    <string name="login">LOGIN</string>
+    <string name="txtPassword">Password</string>
+    <string name="txtEmail">Email</string>
+    <string name="button">Ingresar</string>
+    <string name="todo">TODO</string>
+</resources>
