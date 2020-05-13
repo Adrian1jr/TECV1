@@ -36,9 +36,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         myItems=new ArrayList<>();
 
-        myItems.add("danny");
-        myItems.add("Adrian");
-        myItems.add("desiree");
+        myItems.add("danny" + "                      " +   "Presente");
+        myItems.add("Adrian" + "                     " +   "Presente");
+        myItems.add("desiree" + "                    " +   "Presente");
+        myItems.add("denisee" + "                    " +   "Presente");
+        myItems.add("poncho" + "                     " +   "Presente");
+        myItems.add("sergio" + "                     " +   "Presente");
+        myItems.add("miguel" + "                     " +   "Presente");
+        myItems.add("johan" + "                      " +   "Presente");
+        myItems.add("villasana" + "                  " +   "Presente");
+        myItems.add("pedro" + "                      " +   "Presente");
+        myItems.add("pedro2" + "                     " +   "Presente");
+
 
         lvitems=findViewById(R.id.lvitems);
         arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myItems);
