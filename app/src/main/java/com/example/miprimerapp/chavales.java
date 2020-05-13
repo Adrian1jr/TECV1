@@ -22,12 +22,12 @@ public class chavales {
     public String toString(){
         String mensaje;
         if (this.presente) {
-            mensaje = "Asistio";
+            mensaje = "Presente";
         }
         else{
-            mensaje = "No Asistio";
+            mensaje = " ";
         }
-        return this.nombre + " " +  this.NoControl +  " " + mensaje;
+        return this.nombre + "\n " +  this.NoControl +  "\n " + mensaje;
     }
 
     public int getNoControl() {
