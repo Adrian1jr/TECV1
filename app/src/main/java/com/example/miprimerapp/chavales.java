@@ -18,5 +18,12 @@ public class chavales {
     public boolean isPresente() {
         return presente;
     }
+    @Override
+    public String toString(){
+        return this.nombre + " " + this.presente;
+    }
 
+    public int getNoControl() {
+        return NoControl;
+    }
 }

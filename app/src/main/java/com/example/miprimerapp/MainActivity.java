@@ -20,9 +20,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private ArrayList<chavales> students;
     private ArrayList<String> myItems;
     private ListView lvitems;
     private ArrayAdapter<String> arrayAdapter;
+    chavales chavalon1;
 
     Button scanBtn;
 
@@ -37,14 +39,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         myItems=new ArrayList<>();
         lvitems=findViewById(R.id.lvitems);
 
-        chavales chavalon1 = new chavales("Adrian Tapia Herrera",17100297);
+         chavalon1 = new chavales("Adrian Tapia Herrera",17100297);
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        myItems.add(chavalon1.toString());
         arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myItems);
         lvitems.setAdapter(arrayAdapter);
         // La actividad se ha vuelto visible (ahora se "reanuda").
@@ -70,15 +72,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(result.getContents() !=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents()); //ocuparemos get content perros :V
-                if (!myItems.contains(result.getContents())) {
-                    myItems.add(result.getContents());
+                for (chavales student :
+                        students) {
+                    if (student.getNoControl() == Integer.parseInt(result.getContents())) {
+                        student.setPresente(true);
+                    }
                 }
                 builder.setTitle("Dato Guardado");
                 builder.setPositiveButton("Escanea otra vez", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                    }
+                }
                 }).setNegativeButton("Terminado", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
