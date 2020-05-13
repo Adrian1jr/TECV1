@@ -20,7 +20,14 @@ public class chavales {
     }
     @Override
     public String toString(){
-        return this.nombre + " " + this.presente;
+        String mensaje;
+        if (this.presente) {
+            mensaje = "Asistio";
+        }
+        else{
+            mensaje = "No Asistio";
+        }
+        return this.nombre + " " +  this.NoControl +  " " + mensaje;
     }
 
     public int getNoControl() {

@@ -3,18 +3,25 @@ package com.example.miprimerapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,17 +43,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scanBtn = findViewById(R.id.scanBtn);
         scanBtn.setOnClickListener(this);
 
-        myItems=new ArrayList<>();
+        myItems = new ArrayList<>();
+        students = new ArrayList<>();
         lvitems=findViewById(R.id.lvitems);
 
-         chavalon1 = new chavales("Adrian Tapia Herrera",17100297);
+        students.add(new chavales("ADRIÁN TAPIA HERRERA",17100297));
+        students.add(new chavales("SERGIO ALBERTO VILLASANA ACOSTA",17100850));
+        students.add(new chavales("JOHAN GARCIA VAZQUEZ",17100217));
+        students.add(new chavales("MIGUEL ANGEL MENDEZ CRUZ",17100254));
+        students.add(new chavales("LAURA LIZETH PALOMO CONTRERAS",16100248));
+        students.add(new chavales("JUAN PATRICIO GARCIA MORENO",17100214));
+        students.add(new chavales("JUAN ANGEL SALINAS RIOS",17100290));
+        students.add(new chavales("CARLOS ADOLFO GARCIA CORTES",17100212));
+        students.add(new chavales("MARCO ANTONIO FLORES GONZALEZ",17100209));
+        students.add(new chavales("IRVING HUMBERTO JIMENEZ MORALES",16100220));
+        students.add(new chavales("RODRIGO URIEL GUEVARA DE LEON",17100852));
+        students.add(new chavales("JOAN OMAR MEJIA GUTIERREZ",16100233));
+        students.add(new chavales("ANTONIO HERNANDEZ MORENO",17100235));
+        students.add(new chavales("ANTONIO DE JESUS MORALES CALDERON",17100259));
+        students.add(new chavales("LESLIE IRAIS MALTOS GONZALEZ",17100246));
+        students.add(new chavales("RAUL CESAR MONTES ROSALES",17100258));
+        students.add(new chavales("ANGEL GONZALEZ MORENO",17100223));
+        students.add(new chavales("SERGIO TOGA CAMACHO",17100223));
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        myItems.add(chavalon1.toString());
+        myItems.clear();
+        for (chavales student :
+        students) {
+            myItems.add(student.toString());
+        }
         arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myItems);
         lvitems.setAdapter(arrayAdapter);
         // La actividad se ha vuelto visible (ahora se "reanuda").
@@ -74,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 builder.setMessage(result.getContents()); //ocuparemos get content perros :V
                 for (chavales student :
                         students) {
-                    if (student.getNoControl() == Integer.parseInt(result.getContents())) {
+                    if (result.getContents().equals(Integer.toString(student.getNoControl()))) {
                         student.setPresente(true);
                     }
                 }
