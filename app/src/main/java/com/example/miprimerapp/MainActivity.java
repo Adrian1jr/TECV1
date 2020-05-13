@@ -35,24 +35,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scanBtn.setOnClickListener(this);
 
         myItems=new ArrayList<>();
-
-        myItems.add("danny" + "                      " +   "Presente");
-        myItems.add("Adrian" + "                     " +   "Presente");
-        myItems.add("desiree" + "                    " +   "Presente");
-        myItems.add("denisee" + "                    " +   "Presente");
-        myItems.add("poncho" + "                     " +   "Presente");
-        myItems.add("sergio" + "                     " +   "Presente");
-        myItems.add("miguel" + "                     " +   "Presente");
-        myItems.add("johan" + "                      " +   "Presente");
-        myItems.add("villasana" + "                  " +   "Presente");
-        myItems.add("pedro" + "                      " +   "Presente");
-        myItems.add("pedro2" + "                     " +   "Presente");
-
-
         lvitems=findViewById(R.id.lvitems);
+
+        chavales chavalon1 = new chavales("Adrian Tapia Herrera",17100297);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myItems);
         lvitems.setAdapter(arrayAdapter);
-
+        // La actividad se ha vuelto visible (ahora se "reanuda").
     }
 
     @Override
@@ -75,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(result.getContents() !=null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents()); //ocuparemos get content perros :V
+                if (!myItems.contains(result.getContents())) {
+                    myItems.add(result.getContents());
+                }
                 builder.setTitle("Dato Guardado");
                 builder.setPositiveButton("Escanea otra vez", new DialogInterface.OnClickListener() {
                     @Override
@@ -84,7 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }).setNegativeButton("Terminado", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
                     }
                 });
                 AlertDialog dialog = builder.create();

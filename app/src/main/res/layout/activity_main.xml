@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/escanea_ahora"
-        android:textSize="30sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,9 +23,10 @@
 
     <ListView
         android:id="@+id/lvitems"
-        android:layout_width="322dp"
-        android:layout_height="534dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="316dp"
+        android:layout_height="407dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
